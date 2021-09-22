@@ -1,12 +1,15 @@
-const log: (...data: any[]) => void = console.log;
+const temp: (...data: any[]) => void = console.log;
+
 console.log = function (): void {
     let args: any[] = Array.from(arguments);
+
     args = args
         .map((arg) => {
-        return [arg, typeof arg];
+            return [arg, typeof arg];
         })
         .flat();
-    log.apply(console, args);
+
+    temp.apply(console, args);
 };
 
 console.log(3);
